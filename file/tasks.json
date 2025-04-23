@@ -1,0 +1,15 @@
+{
+  "default_task": [
+    {
+      "task": "complete decentro assignment",
+      "category": "work",
+      "done": false
+    },
+    {
+        "task": "learn python",
+        "category": "study",
+        "done": true
+      }
+  ],
+  "current_tasks": [{}]
+}
