@@ -1,19 +1,28 @@
 {
   "default_tasks": [
     {
-      "task": "Complete Decentro assignment",
-      "category": "Work",
-      "done": true
-    },
-    {
       "task": "Learn python",
       "category": "Study",
+      "due_date": "16:30 24-04-2025",
       "done": true
     },
     {
       "task": "Go to Gym",
       "category": "Sports",
+      "due_date": "6:30 24-04-2029",
       "done": false
+    },
+    {
+      "task": "Complete Decentro assignment",
+      "category": "Work",
+      "due_date": "15:30 24-04-2029",
+      "done": true
+    },
+    {
+      "task": "Learn python",
+      "category": "Study",
+      "due_date": "16:30 24-04-2029",
+      "done": true
     }
   ]
 }
