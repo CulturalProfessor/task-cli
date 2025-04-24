@@ -1,15 +1,19 @@
 {
-  "default_task": [
+  "default_tasks": [
     {
-      "task": "complete decentro assignment",
-      "category": "work",
-      "done": false
+      "task": "Complete Decentro assignment",
+      "category": "Work",
+      "done": true
     },
     {
-        "task": "learn python",
-        "category": "study",
-        "done": true
-      }
-  ],
-  "current_tasks": [{}]
+      "task": "Learn python",
+      "category": "Study",
+      "done": true
+    },
+    {
+      "task": "Go to Gym",
+      "category": "Sports",
+      "done": false
+    }
+  ]
 }

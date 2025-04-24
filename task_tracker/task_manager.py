@@ -1,38 +1,44 @@
 import typer
 from rich.console import Console
 from rich.table import Table
-from complete.storage import load_default_tasks
+from complete.storage import (
+    load_default_tasks,
+    add_task,
+    delete_task,
+    update_task,
+    toggle_task,
+)
 
 app = typer.Typer()
 
 console = Console()
 
-data = load_default_tasks()
-tasks = data["default_task"]
-current_tasks = data["current_tasks"]
-
 
 @app.command(short_help="adds an task")
 def add(task: str, category: str):
     typer.echo(f"adding {task}, {category}")
+    add_task(task=task, category=category)
     show()
 
 
 @app.command(short_help="deletes an task by position")
 def delete(position: int):
-    typer.echo(f"deleting {position} task")
+    typer.echo(f"deleting task at {position} position")
+    delete_task(position=position)
     show()
 
 
 @app.command(short_help="updates an task by position")
 def update(position: int, task: str = None, category: str = None):
     typer.echo(f"updating {position} task")
+    update_task(position=position, task=task, category=category)
     show()
 
 
-@app.command(short_help="marks task as complete")
-def complete(position: int):
-    typer.echo(f"complete {position}")
+@app.command(short_help="Toggles tasks status")
+def toggle(position: int):
+    typer.echo(f"Toggling {position} position task")
+    toggle_task(position=position)
     show()
 
 
@@ -47,17 +53,26 @@ def show():
     table.add_column("Done", min_width=5, justify="right")
 
     def get_category_color(category):
-        COLORS = {"Learn": "cyan", "Youtube": "red", "Sports": "cyan", "Study": "green"}
-        if category in COLORS:
-            return COLORS[category]
+        COLORS = {
+            "learn": "cyan",
+            "youtube": "red",
+            "sports": "cyan",
+            "study": "green",
+            "work": "blue",
+        }
+        if category.lower() in COLORS:
+            return COLORS[category.lower()]
         return "white"
 
+    data = load_default_tasks()
+    tasks = data["default_tasks"]
+
     for index, task in enumerate(tasks):
-        category=task["category"]
+        category = task["category"]
         category_color = get_category_color(task["category"])
         is_done_str = "✔" if True == task["done"] else "✘"
         table.add_row(
-            str(index+1),
+            str(index + 1),
             task["task"],
             f"[{category_color}]{category}[/{category_color}]",
             is_done_str,
