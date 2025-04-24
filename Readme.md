@@ -1,12 +1,19 @@
 Task Tracker CLI
 
 Avalable commands :
+
 add : adds an task
+
 delete : deletes an task by position
+
 update : updates an task by position
+
 toggle : Toggles tasks status
+
 show : display all tasks
+
 --help : provides description regarding commands
+
 
 Getting Started:
 Prerequisites:
@@ -15,6 +22,7 @@ Python 3.7+ , typer, rich
 
 Install dependencies:
 pip install typer rich
+
 
 Examples :
 
